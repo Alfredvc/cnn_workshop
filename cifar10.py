@@ -56,7 +56,7 @@ DATA = 'data/data.pkl'
 def load_file(file):
     def url(file):
         if file is DATA:
-            return 'http://folk.ntnu.no/alfredvc/workshop/data/training.zip'
+            return 'http://folk.ntnu.no/alfredvc/workshop/data/data.pkl'
 
     def download(file):
         print("Downloading %s" % file)
@@ -150,6 +150,7 @@ def main(model='cnn', num_epochs=10):
     # Compile a second function computing the validation loss and accuracy:
     val_fn = theano.function([input_var, target_var], [test_loss, test_acc])
 
+    # Compile a third function computing a prediction
     eval_fn = theano.function([input_var], [T.argmax(test_prediction, axis=1)])
 
     # Finally, launch the training loop.
@@ -215,4 +216,4 @@ def main(model='cnn', num_epochs=10):
     # with np.load('model.npz') as f:
     #     param_values = [f['arr_%d' % i] for i in range(len(f.files))]
     # lasagne.layers.set_all_param_values(network, param_values)
-main(model='suggested_cnn', num_epochs=15)
+main(num_epochs=15)
