@@ -50,7 +50,7 @@ def show_images(data, predicted, labels, classes):
 
         plt.axis('off')
 
-DATA = 'data/data.pkl'
+DATA = 'data.pkl'
 
 
 def load_file(file):
@@ -60,7 +60,7 @@ def load_file(file):
 
     def download(file):
         print("Downloading %s" % file)
-        urlretrieve(url(file), zip(file))
+        urlretrieve(url(file), file)
 
     if not os.path.exists(file):
         download(file)
@@ -106,7 +106,7 @@ def build_cnn(input_var=None):
 def main(model='cnn', num_epochs=10):
     # Load the dataset
     print("Loading data...")
-    X_train, y_train, X_test, y_test, classes = un_pkl('data/data.pkl')
+    X_train, y_train, X_test, y_test, classes = load_file(DATA)
 
     # Prepare Theano variables for inputs and targets
     input_var = T.tensor4('inputs')
