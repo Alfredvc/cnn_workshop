@@ -116,7 +116,7 @@ util.visualize_predictions(net)
 ```
 
 
-![png](ConvolutionalNeuralNetworks_files/ConvolutionalNeuralNetworks_5_0.png)
+![png](img/ConvolutionalNeuralNetworks_5_0.png)
 
 
 As can be shown above, the network does a very good job of locating the 15 different facial keypoints. In order to understand how the network does this, we will open it up and see how this is done.
@@ -145,7 +145,7 @@ visualize.plot_conv_weights(net.layers_['conv1'])
 
 
 
-![png](ConvolutionalNeuralNetworks_files/ConvolutionalNeuralNetworks_7_1.png)
+![png](img/ConvolutionalNeuralNetworks_7_1.png)
 
 
 Above are all 32 3x3 filters learned by the network on the first layer. The weights of the filters are individually scaled to the interval 0 - 255 for visualization.
@@ -172,7 +172,7 @@ visualize.plot_conv_activity(net.layers_['conv1'], x[0:1, 0:1, : ,:])
 
 
 
-![png](ConvolutionalNeuralNetworks_files/ConvolutionalNeuralNetworks_9_2.png)
+![png](img/ConvolutionalNeuralNetworks_9_2.png)
 
 
 Above are the feature maps created by the first layer of the network when given an image. In this case black represents a high activation value. Each feature map is the result of convolving the original image with one of the filters. The different feature maps are tuned to recognize different features. For example some detect the nostrils, or the contours of the face, or the contours of the eyes.
@@ -194,7 +194,7 @@ util.show_images([img])
 
 
 
-![png](ConvolutionalNeuralNetworks_files/ConvolutionalNeuralNetworks_11_1.png)
+![png](img/ConvolutionalNeuralNetworks_11_1.png)
 
 
 
@@ -212,7 +212,7 @@ visualize.plot_conv_activity(net.layers_['conv1'], img[None, None, :, :])
 
 
 
-![png](ConvolutionalNeuralNetworks_files/ConvolutionalNeuralNetworks_12_1.png)
+![png](img/ConvolutionalNeuralNetworks_12_1.png)
 
 
 ## The inner convolutional layers
